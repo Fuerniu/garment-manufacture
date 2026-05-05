@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f7f7f7;
+    color: #222;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1,
+h2 {
+    margin-bottom: 10px;
+}
+
+.section {
+    margin: 60px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.btn-green {
+    background: #25D366;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+}

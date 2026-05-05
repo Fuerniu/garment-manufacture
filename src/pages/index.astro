@@ -1,11 +1,89 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const whatsappNumber = "9779800000000"; // 👉 改成你的号码
+const whatsappText = encodeURIComponent("Hello, I want a quote for garments");
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html>
+	<body>
+		<div class="container">
+			<!-- HERO -->
+			<section class="section">
+				<h1>
+					Start Your Clothing Brand with a Reliable Nepal Manufacturer
+				</h1>
+				<p>Low MOQ | Fast Sampling | Export Worldwide</p>
+
+				<a
+					class="btn"
+					href={`https://wa.me/${whatsappNumber}?text=${whatsappText}`}
+				>
+					Chat on WhatsApp
+				</a>
+
+				<a class="btn" href="#form">Get a Quote</a>
+			</section>
+
+			<!-- QUICK QUOTE FORM -->
+			<section id="form" class="section">
+				<h2>Get a Quote in 12 Hours</h2>
+
+				<form
+					name="inquiry"
+					method="POST"
+					data-netlify="true"
+					action="/thank-you"
+				>
+					<input type="hidden" name="form-name" value="inquiry" />
+
+					<div class="card">
+						<label>Product Type</label><br />
+						<input type="text" name="product" required />
+					</div>
+
+					<div class="card">
+						<label>Quantity</label><br />
+						<input type="number" name="quantity" required />
+					</div>
+
+					<div class="card">
+						<label>Fabric</label><br />
+						<input type="text" name="fabric" />
+					</div>
+
+					<div class="card">
+						<label>Email</label><br />
+						<input type="email" name="email" required />
+					</div>
+
+					<br />
+					<button class="btn" type="submit">Request Quote</button>
+				</form>
+
+				<p>We reply within 12 hours via WhatsApp or Email</p>
+			</section>
+
+			<!-- PRICING HINT -->
+			<section class="section">
+				<h2>Reference Pricing</h2>
+				<p>T-shirt (100 pcs): $3 - $5</p>
+				<p>Hoodie (100 pcs): $8 - $12</p>
+			</section>
+
+			<!-- FACTORY -->
+			<section class="section">
+				<h2>Our Factory</h2>
+				<p>10+ years experience | 50 workers | 30,000 pcs/month</p>
+			</section>
+		</div>
+
+		<!-- FLOATING WHATSAPP -->
+		<a
+			href={`https://wa.me/${whatsappNumber}?text=${whatsappText}`}
+			style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:12px 16px;text-decoration:none;border-radius:30px;"
+		>
+			WhatsApp
+		</a>
+	</body>
+</html>
