@@ -1,5 +1,5 @@
-/thank-you /thank-you/ 301
-/thank-you/ /thank-you/ 200
+/thanks /thanks/ 301
+/thanks/ /thanks/ 200
 
 # 如果你想强制所有页面带斜杠（可选但推荐）
 /*    /:splat/    301
