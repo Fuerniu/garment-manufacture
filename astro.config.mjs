@@ -5,4 +5,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
     // ... 其他配置
     // trailingSlash: 'always',     // 推荐带斜杠
+    // redirects: {
+    //     '/thanks': '/thanks/'
+    // }
 });
