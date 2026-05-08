@@ -81,4 +81,25 @@ const whatsappText = encodeURIComponent("Hello, I want a quote for garments");
 			WhatsApp
 		</a>
 	</body>
+	<script>
+		const form = document.querySelector("form");
+
+		if (form instanceof HTMLFormElement) {
+			form.addEventListener("submit", async (e) => {
+				e.preventDefault();
+
+				const data = new FormData(form);
+				try {
+					await fetch("/", {
+						method: "POST",
+						body: data,
+					});
+
+					window.location.replace("/thanks/");
+				} catch (error) {
+					alert("Submit Error");
+				}
+			});
+		}
+	</script>
 </html>
