@@ -29,7 +29,7 @@ const whatsappText = encodeURIComponent("Hello, I want a quote for garments");
 			<section id="form" class="section">
 				<h2>Get a Quote in 12 Hours</h2>
 
-				<form name="contact" method="POST">
+				<form name="contact" method="POST" data-netlify="true">
 					<input type="hidden" name="form-name" value="inquiry" />
 
 					<div class="card">
@@ -81,32 +81,32 @@ const whatsappText = encodeURIComponent("Hello, I want a quote for garments");
 		</a>
 	</body>
 	<script>
-		const handleSubmit = (event: SubmitEvent) => {
-			event.preventDefault();
+		// const handleSubmit = (event: SubmitEvent) => {
+		// 	event.preventDefault();
 
-			const myForm = event.target as HTMLFormElement;
-			const formData = new FormData(myForm);
-			const params = new URLSearchParams();
-			formData.forEach((value, key) => {
-				params.append(key, value.toString());
-			});
-			fetch("/", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-				},
-				body: params.toString(),
-			})
-				.then(() => {
-					window.location.href = "/thanks/";
-					console.log("Form successfully submitted");
-				})
-				.catch((error) => alert(error));
-		};
-		const form = document.querySelector("form");
+		// 	const myForm = event.target as HTMLFormElement;
+		// 	const formData = new FormData(myForm);
+		// 	const params = new URLSearchParams();
+		// 	formData.forEach((value, key) => {
+		// 		params.append(key, value.toString());
+		// 	});
+		// 	fetch("/", {
+		// 		method: "POST",
+		// 		headers: {
+		// 			"Content-Type": "application/x-www-form-urlencoded",
+		// 		},
+		// 		body: params.toString(),
+		// 	})
+		// 		.then(() => {
+		// 			window.location.href = "/thanks/";
+		// 			console.log("Form successfully submitted");
+		// 		})
+		// 		.catch((error) => alert(error));
+		// };
+		// const form = document.querySelector("form");
 
-		if (form instanceof HTMLFormElement) {
-			form.addEventListener("submit", handleSubmit);
-		}
+		// if (form instanceof HTMLFormElement) {
+		// 	form.addEventListener("submit", handleSubmit);
+		// }
 	</script>
 </html>
