@@ -28,12 +28,8 @@ const whatsappText = encodeURIComponent("Hello, I want a quote for garments");
 			<!-- QUICK QUOTE FORM -->
 			<section id="form" class="section">
 				<h2>Get a Quote in 12 Hours</h2>
-				<form
-					name="contact"
-					method="POST"
-					data-netlify="true"
-					action="/pages/thanks/"
-				>
+
+				<form name="contact" method="POST">
 					<input type="hidden" name="form-name" value="inquiry" />
 
 					<div class="card">
@@ -84,5 +80,33 @@ const whatsappText = encodeURIComponent("Hello, I want a quote for garments");
 			WhatsApp
 		</a>
 	</body>
-	<script></script>
+	<script>
+		const handleSubmit = (event: SubmitEvent) => {
+			event.preventDefault();
+
+			const myForm = event.target as HTMLFormElement;
+			const formData = new FormData(myForm);
+			const params = new URLSearchParams();
+			formData.forEach((value, key) => {
+				params.append(key, value.toString());
+			});
+			fetch("/", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+				},
+				body: params.toString(),
+			})
+				.then(() => {
+					window.location.href = "/thanks/";
+					console.log("Form successfully submitted");
+				})
+				.catch((error) => alert(error));
+		};
+		const form = document.querySelector("form");
+
+		if (form instanceof HTMLFormElement) {
+			form.addEventListener("submit", handleSubmit);
+		}
+	</script>
 </html>
